@@ -1,0 +1,46 @@
+<%= stylesheet_link_tag "login_background" %>
+<div class="form-1">
+  <div class="row">
+    <div class="span9"><%= yield %>
+    
+<h1><span class="log-in">Log in</span></h1>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <p class="float">
+
+
+    <%= f.email_field :email, :placeholder => "Email", autofocus: true %>
+  </p>
+  </div>
+
+  <div class="field">
+    <p class="float">
+<%= f.password_field :password, :placeholder => "Password", autocomplete: "off" %>
+   </p>  
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <p class="float">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+      </p>    
+    </div>
+  <% end -%>
+
+  <div class="abc">
+    <p class="clearfix">
+<%= f.submit "Log in", :class => 'btn btn-success btn-block' %>
+</p>  
+  </div>
+  <%= link_to image_tag("fb_login_button.jpg", size: "160x50", alt: "Facebook Login Button"), user_omniauth_authorize_path(:facebook),:"data-width" => 1000,:"data-height"=>500 %>
+  <br/>
+
+<% end %>
+<%= yield %><%= render 'layouts/user_widget' %>
+<%= render "devise/shared/links" %>
+
+</div>
+</div>
+</div>

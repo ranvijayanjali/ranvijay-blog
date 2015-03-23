@@ -1,0 +1,45 @@
+<div class="container-fluid">
+
+<h1>Your Posts</h1>
+
+ 
+<table style="width:500px">
+   <thead>
+     <tr>
+       <th style="text-align-right;">User_id</th>
+       <th style="text-align-right;">Title</th>
+       <th style="text-align-right;">Status</th>
+      <th style="text-align-right;">Description</th>
+            <th style="text-align-right;">Created At</th>
+                        <th style="text-align-right;">Action</th>
+
+
+
+
+       <th colspan="3"></th>
+     </tr>
+   </thead>
+ 
+  <% @posts.each do |post| %>
+    <tr>
+        <td style="text-align-right;"><%= post.user_id %></td>
+        <td style="text-align-right;"><%= post.title %></td>
+        <td style="text-align-right;"><%= best_in_place post, :status, :type => :select, :collection => {"published" =>"published", "unpublished" => "unpublished"} %>
+
+</td>
+                <td style="text-align-right;"><%= best_in_place post, :description, :type => :textarea %>
+
+</td>
+              <td><%= time_ago_in_words(post.created_at) %> ago</td>
+              <td><%= link_to 'Destroy', post_path(post),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+  <% end %>
+
+</table>
+<br/>
+
+<%= link_to t('.back', :default => t("helpers.links.Back")),
+                                         new_post_path, :class => 'btn btn-default'  %> 
+
+</div>

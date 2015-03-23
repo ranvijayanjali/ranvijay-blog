@@ -1,0 +1,44 @@
+<div class="form-1">
+  <div class="row">
+    <div class="span9"><%= yield %>
+    
+<h1><span class="sign-up"></span>Sign up</h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div class="field">
+    <%= f.text_field :full_name,:placeholder => "Full Name", :autofocus => true %>
+
+  </div>
+
+  <div class="field">
+    <%= f.email_field :email,:placeholder => "Email", autofocus: true %>
+
+  </div>
+
+  <div class="field">
+    <% if @validatable %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+<%= f.password_field :password,:placeholder => "Password", autocomplete: "off" %>
+
+  </div>
+
+  <div class="field">
+    <%= f.password_field :password_confirmation,:placeholder => "Confirm Password", autocomplete: "off" %>
+
+  </div>
+
+  <div class="abc">
+    <p class="clearfix">
+    <%= f.submit "Sign up", :class => 'btn btn-success btn-block' %>
+  </p>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
+</div>

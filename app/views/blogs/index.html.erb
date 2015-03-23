@@ -1,0 +1,43 @@
+<div class="container-fluid">
+<h1>Blogs</h1>
+ 
+ <table style="width:500px">
+   <thead>
+     <tr>
+       <th style="text-align-right;">User_id</th>
+       <th style="text-align-right;">Name</th>
+       <th style="text-align-right;">Text</th>
+       <th colspan="3"></th>
+     </tr>
+   </thead>
+ 
+  <tbody>
+    <% @blogs.each do |blog| %>
+      <tr>
+        <td style="text-align-right;"><%= blog.user_id %></td>
+        <td style="text-align-right;"><%= blog.name %></td>
+        <td style="text-align-right;"><%= blog.text %></td>
+        <% if user_signed_in? %>
+        <% if current_user.id == blog.user_id %>
+        <td><%= link_to t('.edit', :default => t("helpers.links.Show")),
+                    blog, :class => 'btn btn-info' %>
+                      </td>
+        <td><%= link_to t('.edit', :default => t("helpers.links.Edit")),
+                  edit_blog_path(blog), :class => 'btn btn-warning' %>
+                      </td>
+        <td><%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      blog_path(blog),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger' %></td>
+      <% end %>
+      <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</br>
+<%= link_to t('.edit', :default => t("helpers.links.New Blog")),
+                    new_blog_path, :class => 'btn btn-success' %>
+                      
+</div>

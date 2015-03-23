@@ -1,0 +1,22 @@
+<div class="container-fluid">
+<h1>Blog</h1>
+<p>
+  <strong>Name:</strong>
+  <%= @blog.name %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @blog.text %>
+</p>
+<%= link_to t('.back', :default => t("helpers.links.Add Posts")),
+                           new_post_path, :class => 'btn btn-success'  %>
+
+                           <%= link_to t('.back', :default => t("helpers.links.Show Public Post")),
+                                          static_pages_home_path, :class => 'btn btn-info'  %> 
+
+                          
+                         </div>
+                         
+
+
