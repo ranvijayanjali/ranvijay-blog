@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
  ruby '2.1.3'
-gem 'thin'
+gem 'puma'
 gem "kaminari"
 gem "will_paginate"
 gem "cancan"
