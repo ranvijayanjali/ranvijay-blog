@@ -7,6 +7,8 @@ gem "cancan"
 gem "declarative_authorization"
 gem "therubyracer"
 gem "less-rails"
+gem 'omniauth-twitter'
+
 gem "twitter-bootstrap-rails"
 gem "devise"
 gem 'omniauth-facebook'

@@ -83,4 +83,6 @@ devise_for :users, :controllers => { :registrations => "my_devise/registrations"
   get '/404', to: 'errors#file_not_found', via: :all
 get '/422', to: 'errors#unprocessable', via: :all
 get '/500', to: 'errors#internal_server_error', via: :all
+  get 'auth/twitter/callback', to: 'sessions#create'
+
 end
