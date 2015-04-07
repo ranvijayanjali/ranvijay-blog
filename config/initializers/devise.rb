@@ -8,6 +8,9 @@ Devise.setup do |config|
   require 'omniauth-google-oauth2'
   config.omniauth :google_oauth2, "440406139760-l1iacjfjt7tiiabbf2cp65n5u5dr2jv9.apps.googleusercontent.com", "70dT2lYLofZJkXqT9OnJ_s_Z", :scope => "userinfo.email,userinfo.profile"
 
+require 'omniauth-linkedin'
+config.omniauth :linkedin, "78plz3yu3ance9", "xw2Nz29KkHuwHJxg"
+
   require 'omniauth-twitter'
   config.omniauth :twitter, "q8F8HO2DmA7BN19PzjZFQVqSZ", "D9zvPki3dDxXbTbisMmxlFmgm6VkJ9bUWTiXWchuyL2gJ4xBeU"
   # The secret key used by Devise. Devise uses this key to generate

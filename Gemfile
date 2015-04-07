@@ -8,6 +8,7 @@ gem "declarative_authorization"
 gem "therubyracer"
 gem "less-rails"
 gem 'omniauth-twitter'
+gem 'omniauth-linkedin' 
 
 gem "twitter-bootstrap-rails"
 gem "devise"
